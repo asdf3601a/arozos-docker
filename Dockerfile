@@ -1,0 +1,14 @@
+FROM debian:bookworm-slim
+WORKDIR /arozos
+
+ADD --chmod=744 "https://github.com/tobychui/arozos/releases/latest/download/arozos_linux_amd64" /arozos/arozos
+ADD --chmod=644 "https://github.com/tobychui/arozos/releases/latest/download/web.tar.gz" /arozos/web.tar.gz
+COPY --chmod=744 start.sh /arozos/start.sh
+
+RUN \
+apt-get update && \
+apt-get upgrade -y && \
+apt-get install ffmpeg net-tools -y
+
+EXPOSE 8080
+CMD [ "./start.sh" ]
