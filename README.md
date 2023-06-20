@@ -7,7 +7,7 @@
 Docker command line
 
 ```
-docker run -d -p 8080:8080 -v ./run/web:/arozos/web -v ./run/files:/arozos/files -v ./run/system:/arozos/system arozos-docker
+docker run -d -p 8080:8080 -v ./run/web:/arozos/web -v ./run/files:/arozos/files -v ./run/system:/arozos/system ghcr.io/asdf3601a/arozos-docker:latest
 ```
 
 Docker compose
@@ -21,5 +21,5 @@ services:
       - ./run/web:/arozos/web
       - ./run/files:/arozos/files
       - ./run/system:/arozos/system
-    image: arozos-docker
+    image: ghcr.io/asdf3601a/arozos-docker:latest
 ```

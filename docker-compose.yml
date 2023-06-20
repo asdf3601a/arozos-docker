@@ -6,4 +6,4 @@ services:
       - ./run/web:/arozos/web
       - ./run/files:/arozos/files
       - ./run/system:/arozos/system
-    image: arozos-docker
+    image: ghcr.io/asdf3601a/arozos-docker:latest
