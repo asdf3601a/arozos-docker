@@ -16,6 +16,9 @@ jobs:
             - name: checkout
               uses: actions/checkout@v3
 
+            - name: qemu
+              uses: docker/setup-qemu-action@v2
+
             - name: buildx
               uses: docker/setup-buildx-action@v2
             
@@ -30,9 +33,22 @@ jobs:
               uses: docker/build-push-action@v3
               with:
                 context: .
+                file: Dockerfile
                 platforms: linux/amd64
                 push: true
                 tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
                 cache-from: type=gha
                 cache-to: type=gha,mode=max
 
+            - name: build
+              uses: docker/build-push-action@v3
+              with:
+                context: .
+                file: Dockerfile_arm64
+                platforms: linux/arm64
+                push: true
+                tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:arm64
+                cache-from: type=gha
+                cache-to: type=gha,mode=max
+
+  
