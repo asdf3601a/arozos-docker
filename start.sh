@@ -5,4 +5,4 @@ if [ ! -e "./web/index.html" ]; then
     rm $filename
 fi
 
-./arozos
+./launcher
