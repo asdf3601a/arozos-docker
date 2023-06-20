@@ -2,6 +2,8 @@
 
 自用 👌
 
+ArozOS https://github.com/tobychui/arozos
+
 ## run
 
 Docker command line
